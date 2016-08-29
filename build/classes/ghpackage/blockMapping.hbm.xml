@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ghpackage">
+      <class name="block" table="block">
+      <id name="blockId" column="blockId">
+          <generator class="identity"/>
+      </id>
+      <property name="row" type="int"/>
+      <property name="column" type="int"/>
+      <property name="tempNumOfWorker" type="int"/>
+      <property name="limitNumOfWorker" type="int"/>
+      <property name="totalNumOfWorker" type="int"/>
+      <list name="CustomerList" table="CustomerList" lazy="false" inverse="true">
+          <key column="blockId" not-null="true"/>
+          <list-index column="b_customer_order"/>
+          <one-to-many class="customer"/>
+      </list>
+     <many-to-one name="workingTable" class="workingTable" column="workingTableId" not-null="true" lazy="false"/>
+  </class>
+</hibernate-mapping>

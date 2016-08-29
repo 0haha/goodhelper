@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ghpackage">
+      <class name="customer" table="customer">
+      <id name="customerId" column="customerId">
+          <generator class="identity"/>
+      </id>
+      <property name="time" type="int"/>
+      <property name="name"/>
+      <array name="Ttable" table="Ttable">
+         <key column="customerId" not-null="true"/>
+         <list-index column="list_order"/>
+         <element type="string" column="isEmpty"/>
+      </array>
+      <many-to-one name="block" class="block" column="blockId"  lazy="false" cascade="all"/>
+      <many-to-one name="workingTable" class="workingTable" column="workingTableId" lazy="false" cascade="all"/>
+  </class>
+</hibernate-mapping>

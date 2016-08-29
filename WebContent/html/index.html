@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<title>Matrix - Responsive Tile-Based Template</title>
+<link href="../css/main1.css" title="style" rel="stylesheet" type="text/css" />
+<script src="../js/jquery-1.12.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/pic_run.js" type="text/javascript" charset="utf-8"></script>
+<!--[if lt IE 9]>
+  <style type="text/css">
+  @import url("style-ie8.css");
+  </style>
+  <script src="scripts/css3-mediaqueries.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    document.createElement('header');
+    document.createElement('nav');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('footer');
+    document.createElement('hgroup');
+    </script>
+<![endif]-->
+
+<script>
+$(document).ready(function(e) {
+	//鼠标移过图片时显示滑动箭头
+	var i=1;
+	var slidetotal=2;
+    $('#container').mouseover(function(){
+		$('#pic_direct').show();
+		});
+	//鼠标离开图片时隐藏滑动箭头
+	$('#container').mouseout(function(){
+		$('#pic_direct').hide();
+		});
+	
+	//点击滑动箭头时图像滑动
+	$('#pic_direct').click(function(){
+		i++;
+		if(i==3)i=1;
+		for(var j=1;j<=slidetotal;j++){
+			if($('#slide'+j).hasClass('active'))
+			{$('#slide'+j).removeClass('active');
+			}
+			}
+		$('#slide'+i).addClass('active');
+		});
+	
+});
+</script>
+</head>
+<body>
+
+<div style="margin:2em auto;width:960px;position:relative;">
+	<div style="right:1em;top:0;position:absolute;">
+    <a style="margin-right:1em">使用指南</a>
+	<a style="margin-right:1em" href="goodhelper-login.action">登录</a>
+    <a style="margin-right:1em" href="goodhelper-Signup.action">注册</a>
+    </div>
+	<img src="../images/title_icon.png" style="display:block;margin:auto;">
+</div>
+<div id="bodypat">
+<div id="container">
+<div id="pic_direct"></div>
+<!-- Picture 1 -->
+<div class="slide active" id="slide1">
+<a  class="lightbox ">
+    <div class="tile large">
+       <img class="live-img" src="../images/school7.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+    
+<!-- Picture 2 -->
+<a  class="lightbox">
+    <div class="tile medium ">
+    	<img class="live-img active" src="../images/school1.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+    
+<!-- Picture 3 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img active" src="../images/school7.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+
+<!-- Picture 4 -->
+<a  class="lightbox">
+    <div class="tile small">
+     <img class="live-img active" src="../images/school7.jpg" alt="Project Two"/>
+    </div>
+</a>
+   
+
+<!-- Picture 5 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img active" src="../images/school9.jpg" alt="Project Three"/>
+    </div>
+</a>
+  
+    
+<!-- Picture 6 -->
+<a  class="lightbox">   
+    <div class="tile small">
+       <img class="live-img active" src="../images/school11.jpg" alt="Quotation" />
+    </div>
+</a>
+   
+
+<!-- Picture 7 -->
+<a  class="lightbox">
+    <div class="tile small active">
+    <img class="live-img  active" src="../images/school14.jpg" alt="Project Four"/>
+    </div>
+</a>
+   
+    
+<!-- Picture 8 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img  active" src="../images/school14.jpg" alt="Project Five"/>
+    </div>
+</a>
+
+
+</div><!-- end .slide -->
+<div class="slide" id="slide2">
+<a  class="lightbox">
+    <div class="tile large">
+       <img class="live-img active" src="../images/school1.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+    
+<!-- Picture 2 -->
+<a  class="lightbox">
+    <div class="tile medium ">
+    	<img class="live-img active" src="../images/school1.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+    
+<!-- Picture 3 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img active" src="../images/school1.jpg" alt="Project One"/>
+    </div>
+</a>
+	
+
+<!-- Picture 4 -->
+<a  class="lightbox">
+    <div class="tile small">
+     <img class="live-img active" src="../images/school7.jpg" alt="Project Two"/>
+    </div>
+</a>
+   
+
+<!-- Picture 5 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img active" src="../images/school9.jpg" alt="Project Three"/>
+    </div>
+</a>
+  
+    
+<!-- Picture 6 -->
+<a  class="lightbox">   
+    <div class="tile small">
+       <img class="live-img active" src="../images/school11.jpg" alt="Quotation" />
+    </div>
+</a>
+   
+
+<!-- Picture 7 -->
+<a  class="lightbox">
+    <div class="tile small active">
+    <img class="live-img  active" src="../images/school14.jpg" alt="Project Four"/>
+    </div>
+</a>
+   
+    
+<!-- Picture 8 -->
+<a  class="lightbox">
+    <div class="tile small">
+    <img class="live-img  active" src="../images/school14.jpg" alt="Project Five"/>
+    </div>
+</a>
+
+
+</div><!-- end .slide -->
+</div><!-- end #container -->
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head> 
+    	<title>注册-好帮网</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link href="../css/reset.css" rel='stylesheet' type='text/css' />
+		<!-- Custom Theme files -->	
+        <link href="../css/login&regist1.css" rel='stylesheet' type='text/css' />
+        <!--jquery-->
+        <script type="text/javascript" src="../js/jquery-1.12.1.js"></script>
+        <script type="text/javascript" src="../js/jquery.validate.js"></script>
+    
+<script>
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#registForm").validate({
+	    rules: {
+	      usrID: {
+	        required: true,
+	        minlength: 2
+	      },
+	      mainpass: {
+	        required: true,
+	        minlength: 5,
+			maxlength: 15
+	      },
+	      confirm_mainpass: {
+	        required: true,
+	        minlength: 5,
+	        equalTo: "#mainpass"
+	      }
+	    },
+	    messages: {
+	      usrID: {
+	        required: "请填写用户名",
+	        minlength: "用户名必需由两个字母组成"
+	      },
+	      mainpass: {
+	        required: "请输入密码",
+	        minlength: "密码长度不能小于 5 个字母",
+			maxlength: "密码长度不能大于 15 个字母"
+	      },
+	      confirm_mainpass: {
+	        required: "请输确认入密码",
+	        minlength: "密码长度不能小于 5 个字母",
+	        equalTo: "两次密码输入不一致"
+	      }
+	    }
+	});
+});
+</script>      
+    </head>
+    <body >
+    	
+        <div class="regist-box box">
+           <img src="../images/bear.png" style="position:absolute;top:-112px;margin-left:-115px;;">
+           <form  method="post" action="goodhelper-main2.action" id="registForm">
+           		<div class="input">
+                <input type="text" name="usrID"  placeholder="用户名">
+                </div>
+                <div class="input">
+                <input type="password" name="mainpass"  placeholder="密码" id="mainpass">
+                </div>
+                <div class="input">
+                <input type="password" name="confirm_mainpass"  placeholder="确认密码">
+                </div>
+                <div class="input">
+                <input type="text" name="phone" placeholder="电话号码"/>
+                </div>
+                <div class="input">
+                <input type="submit" class="submit" value="submit">   
+                </div> 
+                 <a style="color:#336633; float:right; font-size:12px;margin:auto 1em;">注册</a>  
+                <a style="color:#336633; float:right; font-size:12px;margin:auto 1em;">忘记密码</a> 
+                 <a href="index.html" style="color:#993333; float:left; font-size:12px;margin:auto 1em;">返回首页</a>               
+           </form>
+        </div>
+     
+    </body>
+</html>
+

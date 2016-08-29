@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ghpackage">
+      <class name="community" table="community"  lazy="false">
+      <id name="community_ID" column="communityId">
+          <generator class="identity"/>
+      </id>
+      <property name="usrID" />
+      <property name="nameOfCommunity" />
+      <list name="menbers" table="menbers" lazy="false">
+          <key column="communityId" not-null="true"/>
+          <list-index column="list_order"/>
+          <element type="string" column="menbers_name"/>
+      </list>
+  </class>
+</hibernate-mapping>

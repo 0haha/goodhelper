@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ghpackage">
+      <class name="Information" table="Information">
+      <id name="informationID" column="informationID">
+          <generator class="identity"/>
+      </id>
+      <property name="usrID" />
+      <property name="titile" />
+      <property name="content"/>
+      <property name="communityID"/>
+      <list name="isRead" table="isRead" lazy="false">
+          <key column="informationID" not-null="true"/>
+          <list-index column="list_order"/>
+          <element type="string" column="isRead"/>
+      </list>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+a{
+	text-decoration:none;
+	border:none;
+}
+
+body{
+	font:62.5%/1.5 "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	background:url(images/background4.jpg) center top no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
+	-moz-background-size:cover;
+	-webkit-background-size:cover;
+	-o-background-size:cover;
+	
+}
+
+#bodypat{
+	background-color:#333333;
+	width:100%;
+	
+}
+#container{
+	max-width:970px;
+	height:330px;
+	text-align:center;
+	margin:auto;
+	padding-top:1em;
+	overflow:hidden;
+	position:relative;
+	
+}
+.slide{
+	max-width:970px;
+	top:10px;
+	margin-left:10px;
+	position:absolute;
+	opacity:0;
+	}
+.active{
+	-webkit-transition:all 1s;
+	opacity:1;
+	margin-left:0;
+	}
+.clearfix:after{
+	content:" ";
+	clear:both;
+	height:0;
+	visibility:hidden;
+	display:block;
+}
+
+.centered{
+	margin:0 auto;
+}
+
+
+----------------------------------------------------------------------------*/
+.live>div{
+	position:absolute;
+}
+.live img{
+	border:none;	
+}
+
+.live-img{
+	height:100%;
+	width:100%;
+	position:absolute;
+    left:0;
+}
+.tile{
+	margin:0 5px 10px 5px;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	transition: opacity 0.5s ease 0.1s;
+	-moz-transition: opacity 0.5s ease 0.1s;
+	-o-transition: opacity 0.5s ease 0.1s;
+	-webkit-transition: opacity 0.5s ease 0.1s;
+	
+}
+
+.large{
+	width:310px;
+	height:310px;
+}
+.medium{
+	width:310px;
+	height:150px;
+}
+.small{
+	width:150px;
+	height:150px;
+}
+/*点击鼠标滑动图片*/
+#pic_direct{
+	position:absolute;
+	width:30px;
+	height:40px;
+	background-image:url(../images/bg_direction_nav.png);
+	background-position:right top;
+	right:0;
+	top:120px;	
+	z-index:10;
+	display:none;
+	}
+#pic_direct:hover{
+	cursor:pointer;
+	}
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ghpackage">
+      <class name="workingTable" table="workingTable">
+      <id name="workingTableId" column="workingTableId">
+          <generator class="identity"/>
+      </id>
+      <property name="usrId" />
+      <property name="nameOfWorkingTable" />
+      <property name="TableRow" type="int"/>
+      <property name="TableColumn" type="int"/>
+      <property name="numOfCustomer" type="int"/>
+      <property name="limitNumOfEachBlock" type="int"/>
+      <list name="dates" table="dates" lazy="false">
+          <key column="workingTableId" not-null="true"/>
+          <list-index column="date_order"/>
+          <element type="string" column="date_name"/>
+      </list>
+      <list name="times" table="times" lazy="false">
+          <key column="workingTableId" not-null="true"/>
+          <list-index column="time_order"/>
+          <element type="string" column="time_name"/>
+      </list>
+      <set name="blocks" table="blocks" lazy="false" inverse="true">
+          <key column="workingTableId" not-null="true"/>
+          <one-to-many class="block"/>
+      </set>
+      <set name="customers" table="customers" lazy="false" inverse="true">
+          <key column="workingTableId" not-null="true"/>
+          <one-to-many class="customer"/>
+      </set>
+  </class>
+</hibernate-mapping>
