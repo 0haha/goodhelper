@@ -100,7 +100,7 @@ public class FilterDispatcher implements Filter {
 		//++++++++++++++++注册页面到主功能页面的过程+++++++++++++++++++++++++
 		if("/html/goodhelper-main2.action".equals(requestPath)){
 			String usrID=request.getParameter("usrID");
-			String password=request.getParameter("password");
+			String password=request.getParameter("mainpass");
 			String phone=request.getParameter("phone");
 			//实现数据库存储功能
 			loginOrSignup loginorsignup=new loginOrSignup();
@@ -133,7 +133,7 @@ public class FilterDispatcher implements Filter {
 			path="/function/function5.jsp";
 		}
 		if("/html/data.action".equals(requestPath)){
-			System.out.println("good job!");
+			
 			path="/html/data.html";
 		}
 		//+++++++++++++++++++++++++++制作通知++++++++++++++++++++++++++++
@@ -148,7 +148,9 @@ public class FilterDispatcher implements Filter {
 			 String content=request.getParameter("content");
 			   Information inf=new Information();
 			   inf.setUsrID(usrID);
+			   if(communityID!=null){
 			   inf.setCommunityID(Integer.parseInt(communityID));
+			   }
 			   inf.setTitile(title);
 			   inf.setContent(content);
 			   
@@ -159,9 +161,6 @@ public class FilterDispatcher implements Filter {
 			   request.setAttribute("informationId", String.valueOf(informationId));
 			   request.setAttribute("communityId",communityID);
 			 
-			  // 
-			   
-			
 			
 			path="/function/product1.jsp";
 			

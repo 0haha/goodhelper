@@ -95,11 +95,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    InformationService informationServiceImpl=ctx.getBean("InformationService",InformationService.class);
    String title=informationServiceImpl.provideTitle(Integer.parseInt(informationId));
    String content=informationServiceImpl.provideContent(Integer.parseInt(informationId));
-   List<String>menbers=informationServiceImpl.provideMenbers(Integer.parseInt(communityId));
    out.println("<form action='"+actionString+"'>");
    out.println("Title："+title+"<br/>");
    out.println("Contnet："+content+"<br/>");
+   
+   if(communityId!=null){
    out.println("Please click ticket your name:"+"<br/>");
+   List<String>menbers=informationServiceImpl.provideMenbers(Integer.parseInt(communityId));
    int i=1;
    for(String tmp:menbers){
 	   
@@ -108,6 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   if(i%5==0)
 		   out.println("<br/>");
 	   i++;
+   }
    }
    out.println("<br/><br/><input type='submit' value='submit'/>");
    String url = "http://localhost:7648/goodhelper/pageLibrary/product1-1.jsp"+"?informationId="+informationId+";communityId="+communityId; 
