@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ModifiedFunction">
+  <class name="New_WorkingTable" table="New_WorkingTable">
+      <id name="New_WorkingTableId" type="integer" column="New_WorkingTableId">
+          <generator class="identity"/>
+      </id>
+      <property name="row" type="integer" column="row"/>
+      <property name="column" type="integer" column="column"/>
+      <property name="limitNumOfBlock" type="integer" column="limitNumOfBlock"/>
+      <property name="nameOfWorkingTable" type="string" column="nameOfWorkingTable"/>
+      <list name="dates" table="new_dates">
+          <key column="New_WorkingTableId" not-null="true"/>
+          <list-index column="list_order"/>
+          <element type="string" column="date"/>
+      </list>
+      <list name="times" table="new_times">
+          <key column="New_WorkingTableId" not-null="true"/>
+          <list-index column="list_order"/>
+          <element type="string" column="time"/>
+      </list>
+      <set name="New_Customers" inverse="true" lazy="false">
+              <key column="New_WorkingTableId"/>
+              <one-to-many class="New_Customer"/>
+      </set>
+  </class>
+</hibernate-mapping>

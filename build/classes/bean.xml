@@ -23,6 +23,8 @@
             <value>ghpackage/blockMapping.hbm.xml</value>
             <value>ghpackage/customerMapping.hbm.xml</value>
             <value>ghpackage/workingTableMapping.hbm.xml</value>
+            <value>ModifiedFunction/New_CustomerMapping.hbm.xml</value>
+            <value>ModifiedFunction/New_WorkingTableMapping.hbm.xml</value>
           </list>
       </property>
       <property name="hibernateProperties">
@@ -56,5 +58,11 @@
       <property name="customerDao" ref="customerDao"/>
       <property name="blockDao" ref="blockDao"/>
       <property name="workingTableDao" ref="workingTableDao"/>
+  </bean>
+  <bean id="New_CustomerDao" class="ModifiedFunction.New_CustomerDao">
+      <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+  <bean id="New_WorkingTableDao" class="ModifiedFunction.New_WorkingTableDao">
+      <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
 </beans>

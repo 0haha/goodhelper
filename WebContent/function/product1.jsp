@@ -5,6 +5,7 @@
 <%@ page import="org.springframework.context.ApplicationContext"%>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
 <%@ page import="java.util.*" %>
+<%@page import="java.net.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -116,6 +117,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    String url = "http://localhost:7648/goodhelper/pageLibrary/product1-1.jsp"+"?informationId="+informationId+";communityId="+communityId; 
    out.println("<br/><br/>"+"The link for you:"+url);
    out.println("</form>");
+   String ip=request.getRemoteAddr();
+   out.println(ip);
+   String ip2=InetAddress.getLocalHost().getHostAddress();
+   out.println("<br>"+ip2);
 %>
 <div class="clearfix"> </div>
 	</div>

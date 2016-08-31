@@ -31,7 +31,14 @@ import javax.servlet.jsp.PageContext;
 
 
 
+
+
+
+
+
+
 import org.apache.catalina.Session;
+import org.apache.commons.logging.Log;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
@@ -44,6 +51,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import ModifiedFunction.New_Customer;
+import ModifiedFunction.New_CustomerDao;
+import ModifiedFunction.New_WorkingTable;
+import ModifiedFunction.New_WorkingTableDao;
 /**
  * Servlet Filter implementation class FilterDispatcher
  */
@@ -68,13 +80,14 @@ public class FilterDispatcher implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("Let's go...");
+		System.out.println("Let's go..");
 		HttpServletRequest hrequest=(HttpServletRequest)request;
 		String requestPath =hrequest.getServletPath();
 		String path=null;
 		
 		//+++++++++++++++主页面到登陆或者注册页面过程++++++++++++++++++++++++
 		if("/html/goodhelper-login.action".equals(requestPath)){
+			
 			path="/html/login.html";
 		}
 		
@@ -84,6 +97,7 @@ public class FilterDispatcher implements Filter {
 		//++++++++++++++++登陆页面到主功能页面过程+++++++++++++++++++++++++
 		
 		if("/html/goodhelper-main.action".equals(requestPath)){
+			
 			String username=request.getParameter("maintext");
 			String password=request.getParameter("mainpass");
 			loginOrSignup loginorsignup=new loginOrSignup();
@@ -99,6 +113,7 @@ public class FilterDispatcher implements Filter {
 		}
 		//++++++++++++++++注册页面到主功能页面的过程+++++++++++++++++++++++++
 		if("/html/goodhelper-main2.action".equals(requestPath)){
+			
 			String usrID=request.getParameter("usrID");
 			String password=request.getParameter("mainpass");
 			String phone=request.getParameter("phone");
