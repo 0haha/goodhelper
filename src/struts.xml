@@ -2,13 +2,21 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	
-    <package name="default" extends="struts-default">
-        <action name="BuildCommunityAction" class="ghstruts.BuildCommunityAction">
-            <result name="success">
+    <package name="default" extends="json-default" namespace="/CollectionForm">
+        <action name="add" class="ModifiedFunction.New_Making_WorkingTableAction" method="add">
+            <result type="json">
+                <param name="noCache">true</param>
                 <param name="contentType">text/html</param>
-                <param name="inputName">result</param>
             </result>
+        </action>
+        <action name="wk" class="ModifiedFunction.New_Making_WorkingTableAction" method="execute">
+                 <result name="success">/NewFunction/NewFunction2.jsp</result>
+        </action>
+      <!--   <action name="list" class="ModifiedFunction.New_Making_WorkingTableAction" method="list">
             
         </action>
-    </package>
+        <action name="del" class="ModifiedFunction.New_Making_WorkingTableAction" method="del">
+            
+        </action> -->
+    </package> 
 </struts>    

@@ -24,5 +24,7 @@
 	<classpathentry kind="lib" path="D:/项目/Login/WebRoot/WEB-INF/lib/struts2-core-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="D:/项目/Login/WebRoot/WEB-INF/lib/xwork-core-2.1.6.jar"/>
 	<classpathentry kind="lib" path="D:/项目/hibernate-release-5.0.7.Final/lib/optional/c3p0/mchange-commons-java-0.2.3.4.jar"/>
+	<classpathentry kind="lib" path="D:/Softwares/eclipe/goodhelper/WebContent/WEB-INF/lib/struts2-json-plugin-2.3.24.1.jar"/>
+	<classpathentry kind="lib" path="D:/Softwares/eclipe/goodhelper/WebContent/WEB-INF/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

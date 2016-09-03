@@ -148,7 +148,6 @@ public class FilterDispatcher implements Filter {
 			path="/function/function5.jsp";
 		}
 		if("/html/data.action".equals(requestPath)){
-			
 			path="/html/data.html";
 		}
 		//+++++++++++++++++++++++++++制作通知++++++++++++++++++++++++++++
