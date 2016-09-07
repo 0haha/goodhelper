@@ -32,7 +32,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 		</script>
-
+<script>
+ var q=0,a=0;
+ function addQuestion(){
+	 q++;a=0;
+	 $(".col-sm-10 grid_2").append("Type:<select name='type'"+q+">"+
+	         "<option value='0'></option>"+
+	         "<oprion value='r'>Single Choice question</oprion>"+
+	         "<option value='c'>Multiple Choice question</option>"+
+	         "<option value='t'>essay question</option>"+
+	       "</select>&nbsp;");
+	 $(".col-sm-10 grid_2").append("Question:<input type='text' name='question'"+q+"/>&nbsp;<input type='button' id='bn_add_Q' onclick='addQuestion();'/>&nbsp;")
+	 $(".col-sm-10 grid_2").append("Answer:<input type='text' name='answer'"+q+a+"/>&nbsp;<input type='button' id='bn_add_A' onclock='addAnswer(q);'/>")
+ }
+ function addAnswer(q){
+	 a++;
+	 $(".col-sm-10 grid_2").append("Answer:<input type='text' name='answer'"+q+a+"/>&nbsp;<input type='button' id='bn_add_A' onclock='addAnswer(q);'/>")
+ }
+</script>
 <script type="text/javascript">
 					jQuery(document).ready(function($) {
 						$(".scroll").click(function(event){		
@@ -54,6 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						        autoPlay : true,
 						      });
 						    });
+
 					    </script>
 					    <script>
 						    $(document).ready(function() {
@@ -66,9 +84,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						      });
 						    });
 					    </script>
+					    
 					<!----- //End-Share-instantly-slider---->
 <script type="text/javascript" src="../Tool/js2/move-top.js"></script>
-<script type="text/javascript" src="../Tool/js2/easing.js"></script>					
+<script type="text/javascript" src="../Tool/js2/easing.js"></script>
+			
 </head>
 
 <body>
@@ -87,10 +107,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="col-sm-10 grid_2">
 		  <h3><a href="goodhelper-main3.action">BACK TO MAIN</a></h3>
 
-<% 
-String usr=(String)session.getAttribute("username");
+
+<% String usr=(String)session.getAttribute("username");
 out.println("问卷名:"+"<input type='text' name='nameOfQuestionare'/>"+"<br/>");
-request.setAttribute("usrID",usr );
+request.setAttribute("usrID",usr );%>
+<%--
 for(int i=0;i<7;i++){
 	StringBuilder question=new StringBuilder();
 	question.append("question");
@@ -98,30 +119,69 @@ for(int i=0;i<7;i++){
 	type.append("type");
 	String tempquestion=question.append(String.valueOf(i)).toString();
 	String temptype=type.append(String.valueOf(i)).toString();
-	out.println("<select name='"+temptype+"'>"+
+	out.println("<select name='"+temptype+"'>"+  //type+i
 	"<option value='0'> </option>"+
 	"<option value='r'>单选题 </option>"+
 	"<option value='c'>多选题</option>"+
 	"<option value='t'>问答题</option>"+
 	"</select>" +
 	"<br/>");
-	out.println("Q:"+"<input type='text' name='"+tempquestion+"'/>");
+	out.println("Q:"+"<input type='text' name='"+tempquestion+"'/>");//question+i
 	out.println("<br/>A:");
 	for(int j=0;j<7;j++){
 		StringBuilder answer=new StringBuilder();
 		answer.append("answer");
 		String tempanswer=answer.append(String.valueOf(i)).append(String.valueOf(j)).toString();
-		out.println("<input type='text' name='"+tempanswer+"'/>");
+		out.println("<input type='text' name='"+tempanswer+"'/>");//answer+i+j
 		
 	}
 	out.println("<br/><br/>");
 }
-%>
-<input type="submit" value="完成编辑"/ >
+--%>
+<!-- Here are the section to be test -->
+<div id="q1">
+ Type:<select name="type0">
+         <option value="0"></option>
+         <option value="r">Single Choice question</oprion>
+         <option value="c">Multiple Choice question</option>
+         <option value="t">essay question</option>
+       </select><br/>Question:<input type="text" name="question0"/>&nbsp;<input type="button" id="p1" value="add Question" onclick="addQ();"/><br/><input type="button" id="bn_add_A" onclick="addAnswer(0);" value="add Answer"/>                              
+
+
+<div id="answer_0"></div>
+</div>
+<!-- just go back -->
+ 
+<script language="javascript">
+i = 1; 
+var list=[0,0,0,0,0,0,0,0,0,0];
+
+function addQ(){
+  document.getElementById("q1").innerHTML+='<div id="div_'+i+'">Type:<select name="type'+i+'"><option value="0"></option><option value="r">Single Choice question</oprion><option value="c">Multiple Choice question</option><option value="t">essay question</option></select><br/>Question:<input name="question'+i+'" type="text" /><br/><input type="button" id="bn_add_A" onclick="addAnswer('+i+');" value="add Answer"/>&nbsp;<input type="button" value="delete Question"  onclick="delQ('+i+')"/><div id="answer_'+i+'"></div></div>';
+  i = i + 1;
+}
+function delQ(o){
+
+ document.getElementById("q1").removeChild(document.getElementById("div_"+o));
+ 
+}
+function addAnswer(t){
+	
+	document.getElementById("answer_"+t).innerHTML+='<div id="innerDiv_'+list[t]+'"><input name="answer'+t+list[t]+'" type="text"/><input type="button" value="delete answer" onclick="delAnswer('+t+','+list[t]+')"/></div>';
+	list[t]++;
+}
+function delAnswer(s1,s2){
+	
+	document.getElementById("answer_"+s1).removeChild(document.getElementById("innerDiv_"+s2));
+	
+	}
+</script>	 
+<!-- The End of test -->
+<input type="submit" value="完成编辑"/>
 </div>
 
 <div class="clearfix"> </div>
-	</div>
+</div>
 </div>
 </form>
 </body>

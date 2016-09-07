@@ -97,7 +97,7 @@ public class FilterDispatcher implements Filter {
 		//++++++++++++++++登陆页面到主功能页面过程+++++++++++++++++++++++++
 		
 		if("/html/goodhelper-main.action".equals(requestPath)){
-			
+			ApplicationContext ctx= new ClassPathXmlApplicationContext("bean.xml");
 			String username=request.getParameter("maintext");
 			String password=request.getParameter("mainpass");
 			loginOrSignup loginorsignup=new loginOrSignup();
@@ -323,7 +323,7 @@ public class FilterDispatcher implements Filter {
 		    //使用questionare类处理数据
 			questionare questionare=new questionare();
 			questionare.setNameOfQuestionare(nameOfQuestionare);
-			//获得题目的问题及答案内容，默认答案数量最多有7个
+			//获得题目的问题及答案内容，默认答案数量最多有10个
 			for(int i=0;i<7;i++){
 				StringBuilder question=new StringBuilder();
 				question.append("question");
@@ -335,10 +335,10 @@ public class FilterDispatcher implements Filter {
 				String requestQuestion=request.getParameter(tempquestion);
 				String requestType=request.getParameter(temptype);
 				
-				if(requestQuestion.equals(""))
+				if(requestQuestion==null)
 				{
 					System.out.println("there are "+i+" problems!");
-					break;
+					continue;
 				}
 				radio radio=new radio();
 				checkbox checkbox=new checkbox();
@@ -368,7 +368,9 @@ public class FilterDispatcher implements Filter {
 					answer.append("answer");
 					String tempanswer=answer.append(String.valueOf(i)).append(String.valueOf(j)).toString();
 					String requestAnswer=request.getParameter(tempanswer);
-					if(requestAnswer.equals("")){
+					System.out.println(tempanswer);
+					
+					if(requestAnswer==null){
 						switch(requestType){
 						case "r":questionare.addRadio(radio);break;
 						case "c":questionare.addcheckbox(checkbox);break;
@@ -376,15 +378,15 @@ public class FilterDispatcher implements Filter {
 							break;
 						
 						}
-						System.out.println("the "+i+" problem has "+j+"answers");
-						break;
-					}
+						System.out.println("the "+i+" problem has "+(j+1)+"answers");
+						continue;//由于前段会设置一个不定项参数名（answer+j）j大小不能确定，暂时认为最大为7
+					}else{
 					switch(requestType){
 					case "r":radio.addAnswers(requestAnswer);break;
 					case "c":checkbox.addAnswers(requestAnswer);break;
 					default:break;
 					}
-					
+					}
 					
 				}
 				
@@ -399,7 +401,7 @@ public class FilterDispatcher implements Filter {
 			String usr=questionare.getUsr();
 			String questionareID=questionare.getQuestionareID();
 			session.setAttribute("questionareID", questionareID);
-			String templinkPath="http://localhost:7648/goodhelper/pageLibrary/product4-1.jsp";
+			String templinkPath="http://localhost:8080/goodhelper/pageLibrary/product4-1.jsp";
 			String linkPath=templinkPath.concat("?questionareID="+questionareID);
 			session.setAttribute("linkPath", linkPath);
 			path="/function/product4.jsp";

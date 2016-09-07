@@ -114,13 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    }
    }
    out.println("<br/><br/><input type='submit' value='submit'/>");
-   String url = "http://localhost:7648/goodhelper/pageLibrary/product1-1.jsp"+"?informationId="+informationId+";communityId="+communityId; 
+   String url = "http://localhost:8080/goodhelper/pageLibrary/product1-1.jsp"+"?informationId="+informationId+";communityId="+communityId; 
    out.println("<br/><br/>"+"The link for you:"+url);
    out.println("</form>");
-   String ip=request.getRemoteAddr();
-   out.println(ip);
-   String ip2=InetAddress.getLocalHost().getHostAddress();
-   out.println("<br>"+ip2);
+   
 %>
 <div class="clearfix"> </div>
 	</div>

@@ -7,11 +7,19 @@ public class New_WorkingTable {
   private Integer New_WorkingTableId;
   private int row;
   private int column;
-  private List<String> dates;
-  private List<String> times;
+  private String dates;
+  private String times;
   private int limitNumOfBlock;
   private String nameOfWorkingTable;
+  private String usrId;
   private Set<New_Customer> New_Customers;
+  
+public String getUsrId() {
+	return usrId;
+}
+public void setUsrId(String usrId) {
+	this.usrId = usrId;
+}
 public Integer getNew_WorkingTableId() {
 	return New_WorkingTableId;
 }
@@ -30,16 +38,16 @@ public int getColumn() {
 public void setColumn(int column) {
 	this.column = column;
 }
-public List<String> getDates() {
+public String getDates() {
 	return dates;
 }
-public void setDates(List<String> dates) {
+public void setDates(String dates) {
 	this.dates = dates;
 }
-public List<String> getTimes() {
+public String getTimes() {
 	return times;
 }
-public void setTimes(List<String> times) {
+public void setTimes(String times) {
 	this.times = times;
 }
 public int getLimitNumOfBlock() {

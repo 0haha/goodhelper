@@ -7,6 +7,7 @@
       <id name="New_CustomerId" type="integer" column="New_CustomerId">
           <generator class="identity"/>
       </id>
+      <property name="usrId" type="string" column="usrId"/>
       <property name="name" type="string" column="name"/>
       <property name="token" type="string" column="token"/>
       <many-to-one name="New_WorkingTable" column="New_WorkingTableId" class="New_WorkingTable" lazy="false"/>

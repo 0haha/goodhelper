@@ -125,6 +125,7 @@ public class questionare {
 	//获取问卷ID同时存储进入数据库
 	public void setQuestionareId(String id){
 		try{
+			
 			String driverName="com.mysql.jdbc.Driver";
 			String dbid="jdbc:mysql://localhost:3306/goodhelper";
 			Class.forName(driverName);
@@ -153,7 +154,7 @@ public class questionare {
 			   
 			  
 			   if(t>9)
-				   break;
+			  	   break;
 			   }//数据库中只允许存储十张问卷
 			   stmt.executeUpdate("insert into usr_questionare  values ('"+id+"','"+qid+"');");
 				stmt.close();
@@ -170,6 +171,7 @@ public class questionare {
 	//该函数用于辅助存储题目表单时提供questionID
 	public String getQuestionID(){
 		try{
+			
 			String driverName="com.mysql.jdbc.Driver";
 			String dbid="jdbc:mysql://localhost:3306/goodhelper";
 			Class.forName(driverName);

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Making your WorkingTable</title>
-<!-- <script src="../jquery/jquery-3.1.0.min.js" type="text/javascript">
-</script> -->
-<script src="../jquery/prototype.js" type="text/javascript">
-</script>
+ <script src="../jquery/jquery-3.1.0.min.js" type="text/javascript">
+</script> 
+<!--<script src="../jquery/prototype.js" type="text/javascript">
+</script>-->
 <script>
 $(document).ready(function(){
 	$(".hide").click(function(){
@@ -26,15 +26,29 @@ function getRowAndColumn(){
 	alert(c);
 };
 function goClick(){
-	alert("enen");
-	var url='/CollectionForm/add.action';
+	//alert("enen");
+	/*var url='/CollectionForm/add.action';
 	var params=Form.serialize('paramform');
 	var myAjax=new Ajax.Request(url,{
 		method:'post',
 		parameters:params,
 		onComplete:processResponse,
 		asynchronous:true
-	});
+	});*/
+	var a=$(".row").val();
+	var b=$(".column").val();
+	var c=$("#test").val();
+	$("#show").append("<h3>Here is your table:<h3>");
+	$("#show").append("<table border=4 width=250 align=center bordercolor='#a0c6e5'style='border-collapse:collapse;'>");
+	$("#show").append("<tr><th>"+c+"</th></tr>");
+	for(var i=0;i<a;i++){
+		$("#show").append("<tr>");
+		for(var j=0;j<b;j++){
+			$("#show").append("<th>"+"<input type='checkbox' name="+(i+j)+"/></th>");
+		}
+		$("#show").append("</tr>");
+	}
+	$("#show").append("</table>");
 }
 function processResponse(request){
 	var res=request.responseText.evalJSON();

@@ -8,19 +8,12 @@
           <generator class="identity"/>
       </id>
       <property name="row" type="integer" column="row"/>
-      <property name="column" type="integer" column="column"/>
+      <property name="column" type="integer" column="column2"/>
       <property name="limitNumOfBlock" type="integer" column="limitNumOfBlock"/>
       <property name="nameOfWorkingTable" type="string" column="nameOfWorkingTable"/>
-      <list name="dates" table="new_dates">
-          <key column="New_WorkingTableId" not-null="true"/>
-          <list-index column="list_order"/>
-          <element type="string" column="date"/>
-      </list>
-      <list name="times" table="new_times">
-          <key column="New_WorkingTableId" not-null="true"/>
-          <list-index column="list_order"/>
-          <element type="string" column="time"/>
-      </list>
+      <property name="usrId" type="string" column="usrId"/>
+      <property name="dates" type="string" column="dates"/>
+      <property name="times" type="string" column="times"/>
       <set name="New_Customers" inverse="true" lazy="false">
               <key column="New_WorkingTableId"/>
               <one-to-many class="New_Customer"/>

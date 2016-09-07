@@ -101,9 +101,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    String content=informationServiceImpl.provideContent(Integer.parseInt(informationId));
    List<String>menbers=informationServiceImpl.provideMenbers(Integer.parseInt(communityId));
    out.println("<form action='"+actionString+"'>");
-   out.println("通知题目："+title+"<br/>");
-   out.println("通知内容："+content+"<br/>");
-   out.println("请看过通知的小朋友打上勾:"+"<br/>");
+   out.println("Title："+title+"<br/>");
+   out.println("Content："+content+"<br/>");
+   out.println("Please ticket your name if you have read the information:"+"<br/>");
    int i=1;
    for(String tmp:menbers){
 	   

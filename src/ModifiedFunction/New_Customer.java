@@ -5,6 +5,14 @@ public class New_Customer {
   private String name;
   private String token;
   private New_WorkingTable New_WorkingTable;
+  private String  usrId;
+ 
+public String getUsrId() {
+	return usrId;
+}
+public void setUsrId(String usrId) {
+	this.usrId = usrId;
+}
 public Integer getNew_CustomerId() {
 	return New_CustomerId;
 }
