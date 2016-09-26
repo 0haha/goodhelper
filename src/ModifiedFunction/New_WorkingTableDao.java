@@ -39,4 +39,7 @@ public class New_WorkingTableDao extends HibernateDaoSupport{
 		// TODO Auto-generated method stub
 		return (List<New_WorkingTable>)getHibernateTemplate().find("from New_WorkingTable");
 	}
+	public List<New_WorkingTable> findByUsrId(String usrId){
+		return (List<New_WorkingTable>)getHibernateTemplate().find("from New_WorkingTable w where w.usrId=?",usrId);
+	}
 }

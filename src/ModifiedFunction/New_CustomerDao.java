@@ -42,5 +42,8 @@ public class New_CustomerDao extends HibernateDaoSupport{
 		return (List<New_Customer>)getHibernateTemplate().find("from New_Customer");
 	}
 
-	
+	public List<New_Customer>  findByWorkingTableId(int WorkingTableId){
+		return (List<New_Customer>)getHibernateTemplate().find("from New_Customer c where c.New_WorkingTable.New_WorkingTableId=?",WorkingTableId);
+		
+	}
 }

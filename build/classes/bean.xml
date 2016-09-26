@@ -65,4 +65,7 @@
   <bean id="New_WorkingTableDao" class="ModifiedFunction.New_WorkingTableDao">
       <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
+   <bean id="NewTableFactory" class="ModifiedFunction.NewTableFactory">
+      <property name="New_CustomerDao" ref="New_CustomerDao"/>
+  </bean> 
 </beans>

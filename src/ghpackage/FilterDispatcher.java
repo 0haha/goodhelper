@@ -135,7 +135,7 @@ public class FilterDispatcher implements Filter {
 		}
 		if("/html/fuction2.action".equals(requestPath)){
 			
-			path="/function/function2.jsp";
+			path="/NewFunction/NewFunction2.jsp";
 		}
 		if("/html/fuction3.action".equals(requestPath)){
 			System.out.println("function3 here");
@@ -305,7 +305,7 @@ public class FilterDispatcher implements Filter {
 			//List<workingTable> inforamtionList=workingTableDaoImpl.findByUsrname(usrId);
 			workingTableFactory workingTableFactory=ctx.getBean("workingTableFactory",workingTableFactoryImpl.class);
 			workingTableFactory.produceWorkingTable(usrId);
-			path="/data/data2.jsp";
+			path="/NewFunction/data2.jsp";
 		}
 		//++++++++++++++++++++++第三个功能创建通讯录+++++++++++++++++++
 		if("/html/product3.action".equals(requestPath)){
@@ -314,7 +314,10 @@ public class FilterDispatcher implements Filter {
 			
 			path="/function/product3.jsp";
 		}
-		
+		if("/html/goodhelper-data3.action".equals(requestPath)){
+			
+			path="/data/注意事项.jsp";
+		}
 		//++++++++++++++++++++++第四个功能制作小问卷++++++++++++++++++++
 		if("/html/product4.action".equals(requestPath)){
 			//通过session方式获取用户名

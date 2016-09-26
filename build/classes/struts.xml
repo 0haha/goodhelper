@@ -9,14 +9,23 @@
                 <param name="contentType">text/html</param>
             </result>
         </action>
-        <action name="wk" class="ModifiedFunction.New_Making_WorkingTableAction" method="execute">
-                 <result name="success">/NewFunction/NewFunction2.jsp</result>
+        <action name="get" class="ModifiedFunction.New_Making_WorkingTableAction" method="get">
+            <result type="json">
+                <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+            </result>
         </action>
-      <!--   <action name="list" class="ModifiedFunction.New_Making_WorkingTableAction" method="list">
-            
+        <action name="setCustomer" class="ModifiedFunction.New_SetCustomerAction" method="setCustomer">
+                 <result name="success">/function/finish.html</result>
+                 <result name="error">/function/error.jsp</result>
         </action>
-        <action name="del" class="ModifiedFunction.New_Making_WorkingTableAction" method="del">
-            
-        </action> -->
     </package> 
+    <package name="default2" extends="json-default" namespace="/ResultForm">
+        <action name="list" class="ModifiedFunction.New_Result_WorkingTableAction" method="list">
+            <result type="json">
+                <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+            </result>
+        </action>
+    </package>
 </struts>    
